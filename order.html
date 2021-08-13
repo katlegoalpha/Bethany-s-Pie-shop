@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="site.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethany's Pie Shop</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="pies.html">Pies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <aside><img src="images/logo.png" alt="Bethany's pie shop"></aside>
+        <article>
+            <h1>Order</h1>
+            <form action="https:localhost:7071/api/post" method="="POST>
+
+            <div class="input-group">
+               <div><lable for="first-name">First name</lable></div>
+               <div><input type="text" name="first-name" id="first-name" /></div>
+            </div>
+
+            <div class="input-group">
+                <div><lable for="last-name">Last name</lable></div>
+                <div><input type="text" name="first-name" id="first-name" /></div>
+            </div>
+
+            <div class="input-group">
+                <div><lable for="address">Address</lable></div>
+                <div><input type="text" name="first-name" id="first-name" /></div>
+            </div>
+
+            <div class="input-group">
+                <div><lable for="state">Province</lable></div>
+                <div>
+                    <select name="state" id="state">
+                        <option value="" selected>[ Select one ]</option>
+                        <option value="GAUTENG">Gauteng</option>
+                        <option value="KWA-ZULU NATAL">Kwa-Zulu Natal</option>
+                        <option value="MPUMALANGA">Mpumalanga</option>
+                        <option value="NORTH-WEST">North West</option>
+                        <option value="FREESTATE">Freestate</option>
+                        <option value="EASTERN-CAPE">Eastern Cape</option>
+                        <option value="WESTERN-CAPE">Western Cape</option>
+                        <option value="LIMPOPO">Limpopo</option>
+                        <option value="NORTHERN-CAPE">Nothern Cape</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <div><lable for="postal-code">Postal code</lable></div>
+                <div><input type="text" name="postal-code" id="postal-code" /></div>
+            </div>
+
+            <div class="input-group">
+                <div><label for="comments">Comments</label></div>
+                <div><textarea name="comments" id="comments" cols="30" rows="10"></textarea></div>
+            </div>
+            
+            <input type="reset" value="Reset" />
+            <input type="submit" value="Order" />
+            </form>
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="pies.html">Pies</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
