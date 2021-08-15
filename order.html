@@ -6,6 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bethany's Pie Shop</title>
+    <!--Adding google fonts-->
+    <!--Linking google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="site.css" type="">
+    <style>
+        .input-group {
+            margin-bottom: 8px;
+        }
+
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            padding: 10px;
+            border: solid 1px #9be2cd;
+            border-radius: 4px;
+            width: 50%;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        input[type="reset"] {
+            background: transparent;
+            border: 0;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            border: solid 1px #9be2cd;
+            border-radius: 3px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,25 +60,35 @@
         <aside><img src="images/logo.png" alt="Bethany's pie shop"></aside>
         <article>
             <h1>Order</h1>
+
+            <div class="pie">
+                <img src="" alt="">
+                <div class="columns">
+                    <div class="title"></div>
+                    <div class="price"></div>
+                </div>
+                <p class="desc"></p>
+            </div>
+
             <form action="https:localhost:7071/api/post" method="="POST>
 
             <div class="input-group">
-               <div><lable for="first-name">First name</lable></div>
+               <div><label for="first-name">First name</label></div>
                <div><input type="text" name="first-name" id="first-name" /></div>
             </div>
 
             <div class="input-group">
-                <div><lable for="last-name">Last name</lable></div>
+                <div><label for="last-name">Last name</label></div>
                 <div><input type="text" name="first-name" id="first-name" /></div>
             </div>
 
             <div class="input-group">
-                <div><lable for="address">Address</lable></div>
+                <div><label for="address">Address</label></div>
                 <div><input type="text" name="first-name" id="first-name" /></div>
             </div>
 
             <div class="input-group">
-                <div><lable for="state">Province</lable></div>
+                <div><label for="state">Province</label></div>
                 <div>
                     <select name="state" id="state">
                         <option value="" selected>[ Select one ]</option>
@@ -58,7 +106,7 @@
             </div>
             
             <div class="input-group">
-                <div><lable for="postal-code">Postal code</lable></div>
+                <div><label for="postal-code">Postal code</label></div>
                 <div><input type="text" name="postal-code" id="postal-code" /></div>
             </div>
 
@@ -82,4 +130,33 @@
         </nav>
     </footer>
 </body>
+<script>
+    //checking if content is fully loaded on the DOM before running the script
+    window.addEventListener("DOMContentLoaded", function(e) {
+        //accesing local storage to read the order input
+        const order = localStorage.getItem("order");
+        //checking if order input is valid
+        if (order) {
+            const pieOrder = JSON.parse(order);
+
+            //selecting the pie displaying element
+            const pie = document.querySelector("pie");
+            //selecting elements withing the .pie class element
+            const title = pie.querySelector(".title");
+            const  price = pie.querySelector(".price");
+            const desc = pie.querySelector(".desc");
+
+            //using the iiner text property to point to the selected pie
+            title.innerText = pieOrder.title;
+            price.innerText = pieOrder.price;
+            desc.innerText = pieOrder.desc;
+
+            //selecting the img element and settng it's attribute to the selected pie data
+            const img = pie.querySelector("img");
+            img.setAttribute("src", `images/${pieOrder.id}.png`);
+            //setting the alt attribute for the image so it displays image data as you hover over it
+            img.setAttribute("alt", pieOrder.title);
+        }
+    });
+</script>
 </html>
